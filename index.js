@@ -11,6 +11,7 @@ let items = ["Buy Food", "Prepare Food", "Cook Food", "Eat Food"];
 let workItems = ["Show Up"];
 let funItems = ["Watch TV", "Read a Book"];
 let weekendItems = ["Relax", "Watch TV"];
+let finalExamItems = ["ICS360", "ICS385", "ICS171", "ENG316" , "AJ200"];
 
 app.set('view engine', 'ejs');
 
@@ -33,6 +34,9 @@ res.redirect("/fun");
 } else if (req.body.list === "Weekend") {
 weekendItems.push(item);
 res.redirect("/weekend");
+} else if (req.body.list === "Finals") {
+weekendItems.push(item);
+res.redirect("/finals");
 } else {
 items.push(item);
 res.redirect("/");
@@ -54,7 +58,6 @@ res.render("list", {listTitle: "Weekend To Do List", newListItems: weekendItems}
 });
 
 app.get("/finals", function(req, res) {
-let finalExamItems = ["MATH 100", "ENG 101", "PSY 101", "HIST 151"];
 res.render("finals", {finalExamItems: finalExamItems});
 });
 
